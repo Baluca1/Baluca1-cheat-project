@@ -1,0 +1,108 @@
+-- =============================================
+--   Rivals Xeno Hub - by tostestas
+--   Loadstring : loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua"))()
+-- =============================================
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua
+
+
+local Window = Rayfield:CreateWindow({
+    Name = "Rivals Hub | Xeno",
+    LoadingTitle = "Rivals Cheat Hub",
+    LoadingSubtitle = "by Baluca1",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "RivalsHub",
+        FileName = "Config"
+    },
+    Discord = { Enabled = false },
+    KeySystem = false
+})
+
+-- ================== TABS ==================
+local TabCombat = Window:CreateTab("Combat", 4483362458)
+local TabVisuals = Window:CreateTab("Visuals", 6023426915)
+local TabMovement = Window:CreateTab("Movement", 6023426915)
+local TabMisc = Window:CreateTab("Misc", 4483362458)
+
+-- ================== COMBAT ==================
+local SectionCombat = TabCombat:CreateSection("Combat")
+
+TabCombat:CreateToggle({
+    Name = "Aimbot (Silent)",
+    CurrentValue = false,
+    Flag = "Aimbot",
+    Callback = function(Value)
+        -- Mets ici ton code aimbot pour Rivals
+        print("Aimbot", Value and "ON" or "OFF")
+    end
+})
+
+TabCombat:CreateToggle({
+    Name = "Triggerbot",
+    CurrentValue = false,
+    Flag = "Triggerbot",
+    Callback = function(Value)
+        print("Triggerbot", Value and "ON" or "OFF")
+    end
+})
+
+-- ================== VISUALS ==================
+local SectionVisuals = TabVisuals:CreateSection("Visuals")
+
+TabVisuals:CreateToggle({
+    Name = "ESP Players",
+    CurrentValue = false,
+    Flag = "ESP",
+    Callback = function(Value)
+        -- Ton code ESP ici (Drawing ou Highlight)
+        print("ESP", Value and "ON" or "OFF")
+    end
+})
+
+TabVisuals:CreateToggle({
+    Name = "ESP Items / Flags",
+    CurrentValue = false,
+    Flag = "ItemESP",
+    Callback = function(Value)
+        print("ItemESP", Value and "ON" or "OFF")
+    end
+})
+
+-- ================== MOVEMENT ==================
+TabMovement:CreateToggle({
+    Name = "Speed Hack",
+    CurrentValue = false,
+    Flag = "Speed",
+    Callback = function(Value)
+        print("Speed Hack", Value and "ON" or "OFF")
+    end
+})
+
+TabMovement:CreateSlider({
+    Name = "WalkSpeed",
+    Range = {16, 500},
+    Increment = 1,
+    CurrentValue = 100,
+    Flag = "WalkSpeed",
+    Callback = function(Value)
+        -- Ton code walkspeed ici
+    end
+})
+
+-- ================== MISC ==================
+TabMisc:CreateButton({
+    Name = "Destroy Anti-Cheat",
+    Callback = function()
+        print("Anti-cheat bypassed")
+    end
+})
+
+TabMisc:CreateButton({
+    Name = "Copy Loadstring",
+    Callback = function()
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua"))()')
+        Rayfield:Notify("Loadstring copié dans le presse-papiers !")
+    end
+})
+
+Rayfield:Notify("Hub load", 5)
