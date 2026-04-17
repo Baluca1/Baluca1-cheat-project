@@ -1,40 +1,38 @@
--- =============================================
---   Rivals Xeno Hub - by tostestas
---   Loadstring : loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua"))()
---   getgenv().SecureMode = true
+-- Rivals Xeno Hub
+-- GitHub: Baluca1
 
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+getgenv().SecureMode = true
 
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield', true))()
 
 local Window = Rayfield:CreateWindow({
     Name = "Rivals Hub | Xeno",
-    LoadingTitle = "Rivals Cheat Hub",
+    LoadingTitle = "Rivals Hub",
     LoadingSubtitle = "by Baluca1",
     ConfigurationSaving = {
         Enabled = true,
         FolderName = "RivalsHub",
         FileName = "Config"
     },
-    Discord = { Enabled = false },
     KeySystem = false
 })
 
--- ================== TABS ==================
+-- Tabs
 local TabCombat = Window:CreateTab("Combat", 4483362458)
 local TabVisuals = Window:CreateTab("Visuals", 6023426915)
 local TabMovement = Window:CreateTab("Movement", 6023426915)
 local TabMisc = Window:CreateTab("Misc", 4483362458)
 
--- ================== COMBAT ==================
-local SectionCombat = TabCombat:CreateSection("Combat")
+-- Combat
+local SectionCombat = TabCombat:CreateSection("Combat Features")
 
 TabCombat:CreateToggle({
-    Name = "Aimbot (Silent)",
+    Name = "Silent Aim",
     CurrentValue = false,
-    Flag = "Aimbot",
+    Flag = "SilentAim",
     Callback = function(Value)
-        -- Mets ici ton code aimbot pour Rivals
-        print("Aimbot", Value and "ON" or "OFF")
+        -- Ajoute ton code silent aim ici
+        print("Silent Aim:", Value)
     end
 })
 
@@ -43,39 +41,38 @@ TabCombat:CreateToggle({
     CurrentValue = false,
     Flag = "Triggerbot",
     Callback = function(Value)
-        print("Triggerbot", Value and "ON" or "OFF")
+        print("Triggerbot:", Value)
     end
 })
 
--- ================== VISUALS ==================
-local SectionVisuals = TabVisuals:CreateSection("Visuals")
+-- Visuals
+local SectionVisuals = TabVisuals:CreateSection("Visual Features")
 
 TabVisuals:CreateToggle({
     Name = "ESP Players",
     CurrentValue = false,
     Flag = "ESP",
     Callback = function(Value)
-        -- Ton code ESP ici (Drawing ou Highlight)
-        print("ESP", Value and "ON" or "OFF")
+        print("ESP Players:", Value)
     end
 })
 
 TabVisuals:CreateToggle({
-    Name = "ESP Items / Flags",
+    Name = "ESP Items",
     CurrentValue = false,
     Flag = "ItemESP",
     Callback = function(Value)
-        print("ItemESP", Value and "ON" or "OFF")
+        print("ESP Items:", Value)
     end
 })
 
--- ================== MOVEMENT ==================
+-- Movement
 TabMovement:CreateToggle({
     Name = "Speed Hack",
     CurrentValue = false,
-    Flag = "Speed",
+    Flag = "SpeedHack",
     Callback = function(Value)
-        print("Speed Hack", Value and "ON" or "OFF")
+        print("Speed Hack:", Value)
     end
 })
 
@@ -84,26 +81,20 @@ TabMovement:CreateSlider({
     Range = {16, 500},
     Increment = 1,
     CurrentValue = 100,
-    Flag = "WalkSpeed",
+    Flag = "WalkSpeedValue",
     Callback = function(Value)
-        -- Ton code walkspeed ici
+        -- Ajoute ton code walkspeed ici
+        print("WalkSpeed set to:", Value)
     end
 })
 
--- ================== MISC ==================
-TabMisc:CreateButton({
-    Name = "Destroy Anti-Cheat",
-    Callback = function()
-        print("Anti-cheat bypassed")
-    end
-})
-
+-- Misc
 TabMisc:CreateButton({
     Name = "Copy Loadstring",
     Callback = function()
-        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua"))()')
-        Rayfield:Notify("Loadstring copié dans le presse-papiers !")
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/rivals-xeno-hub/main/hub.lua"))()')
+        Rayfield:Notify("Loadstring", "Copie dans le presse-papiers", 5)
     end
 })
 
-Rayfield:Notify("Hub load", 5)
+Rayfield:Notify("Hub charge", "Rivals Xeno Hub par Baluca1", 5)
