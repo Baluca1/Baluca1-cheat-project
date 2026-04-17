@@ -1,0 +1,98 @@
+-- Rivals Xeno Hub
+-- GitHub: Baluca1
+
+getgenv().SecureMode = true
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield', true))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Rivals Hub | Xeno",
+    LoadingTitle = "Rivals Hub",
+    LoadingSubtitle = "by Baluca1",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "RivalsHub",
+        FileName = "Config"
+    },
+    KeySystem = false
+})
+
+-- Tabs
+local TabCombat = Window:CreateTab("Combat", 4483362458)
+local TabVisuals = Window:CreateTab("Visuals", 6023426915)
+local TabMovement = Window:CreateTab("Movement", 6023426915)
+local TabMisc = Window:CreateTab("Misc", 4483362458)
+
+-- Combat
+local SectionCombat = TabCombat:CreateSection("Combat Features")
+
+TabCombat:CreateToggle({
+    Name = "Silent Aim",
+    CurrentValue = false,
+    Flag = "SilentAim",
+    Callback = function(Value)
+        print("Silent Aim:", Value)
+    end
+})
+
+TabCombat:CreateToggle({
+    Name = "Triggerbot",
+    CurrentValue = false,
+    Flag = "Triggerbot",
+    Callback = function(Value)
+        print("Triggerbot:", Value)
+    end
+})
+
+-- Visuals
+local SectionVisuals = TabVisuals:CreateSection("Visual Features")
+
+TabVisuals:CreateToggle({
+    Name = "ESP Players",
+    CurrentValue = false,
+    Flag = "ESP",
+    Callback = function(Value)
+        print("ESP Players:", Value)
+    end
+})
+
+TabVisuals:CreateToggle({
+    Name = "ESP Items",
+    CurrentValue = false,
+    Flag = "ItemESP",
+    Callback = function(Value)
+        print("ESP Items:", Value)
+    end
+})
+
+-- Movement
+TabMovement:CreateToggle({
+    Name = "Speed Hack",
+    CurrentValue = false,
+    Flag = "SpeedHack",
+    Callback = function(Value)
+        print("Speed Hack:", Value)
+    end
+})
+
+TabMovement:CreateSlider({
+    Name = "WalkSpeed",
+    Range = {16, 500},
+    Increment = 1,
+    CurrentValue = 100,
+    Flag = "WalkSpeedValue",
+    Callback = function(Value)
+        print("WalkSpeed set to:", Value)
+    end
+})
+
+-- Misc
+TabMisc:CreateButton({
+    Name = "Copy Loadstring",
+    Callback = function()
+        setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/rivals-xeno-hub/main/hub.lua"))()')
+        Rayfield:Notify("Loadstring", "Copie dans le presse-papiers", 5)
+    end
+})
+
+Rayfield:Notify("Hub charge", "Rivals Xeno Hub by Baluca1", 5)
