@@ -1,7 +1,8 @@
 -- =============================================
 --   Rivals Xeno Hub - by tostestas
 --   Loadstring : loadstring(game:HttpGet("https://raw.githubusercontent.com/Baluca1/Baluca1-cheat-project/main/hub.lua"))()
--- =============================================
+--   getgenv().SecureMode = true
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 
